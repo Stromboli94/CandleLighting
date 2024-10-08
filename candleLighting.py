@@ -6,7 +6,7 @@ c = hdate.Location(name = "home", latitude = latitude, longitude = longitude, ti
 tod = datetime.date.today()
 h = hdate.HDate(tod, diaspora= diaspora, hebrew=hebrew)
 cal = Calendar()
-years = 3
+years = 1
 for i in range(years):
     hols = h.get_holidays_for_year(types=[hdate.HolidayTypes.EREV_YOM_TOV, hdate.HolidayTypes.YOM_TOV])
     rh = hols[1][1]

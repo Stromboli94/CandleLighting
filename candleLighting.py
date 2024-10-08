@@ -1,6 +1,6 @@
 import hdate, datetime
 from ics import Calendar, Event
-from location import *
+from location import latitude, longitude, timezone, altitude, diaspora, hebrew
 
 c = hdate.Location(name = "home", latitude = latitude, longitude = longitude, timezone = timezone, altitude = altitude, diaspora = diaspora)
 tod = datetime.date.today()

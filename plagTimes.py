@@ -9,7 +9,7 @@ def get_plag_times(tod, c):
         day = tod + datetime.timedelta(days = i)
         z = hdate.Zmanim(date = day, location = c, hebrew = False).zmanim["plag_mincha"].time()
         times.append(z)
-        print(f'{day}: {z}')
+        print(f'{day}, {day.strftime('%A')}, {z}')
     return times
 
 def get_mincha_time(t):

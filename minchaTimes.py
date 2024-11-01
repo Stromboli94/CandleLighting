@@ -37,6 +37,7 @@ for i in range(years):
         day = currentShabbos.gdate
         p = get_medianPlag(day, c)
         m = get_mincha_time(p)
+        #set this to 1 to only print Sundays
         for k in range(5):
             day = (m + datetime.timedelta(days = k)).replace(tzinfo = ZoneInfo(timezone))
             heb = hdate.HDate(gdate = day.date() , diaspora = diaspora, hebrew = hebrew)

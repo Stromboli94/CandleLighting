@@ -20,5 +20,5 @@ def get_mincha_time(t):
 
 c = hdate.Location(name = "home", latitude = latitude, longitude = longitude, timezone = timezone, altitude = altitude, diaspora = diaspora)
 tod = datetime.date.today()
-#tod = datetime.date(year=2025, month= 2, day= 1)
+#tod = datetime.date(year=2025, month= 2, day= 9)
 get_plag_times(tod, c)

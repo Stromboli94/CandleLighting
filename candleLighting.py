@@ -48,7 +48,7 @@ for i in range(years):
             day = currentShabbos.gdate
             z = hdate.Zmanim(date = day, location = c, candle_lighting_offset = 18, havdalah_offset = 50, language = language)
             e = Event()
-            e.name = f'Parshat {currentShabbos.parasha.name} - havdalah' if currentShabbos.parasha.name != "none" else "Shabbos Hol HaMoed - havdalah"
+            e.name = f'Parshat {currentShabbos.parasha.name} - havdalah' if currentShabbos.parasha.name != "NONE" else "Shabbos Hol HaMoed - havdalah"
             cl = z.havdalah
             e.begin = cl
             e.end = cl
@@ -60,7 +60,7 @@ for i in range(years):
             day = friday.gdate
             z = hdate.Zmanim(date = day, location = c, candle_lighting_offset = 18, havdalah_offset = 50, language = language)
             e = Event()
-            e.name = f'Parshat {currentShabbos.parasha.name} - candle lighting' if currentShabbos.parasha.name != "none" else "Shabbos Hol HaMoed - candle lighting"
+            e.name = f'Parshat {currentShabbos.parasha.name} - candle lighting' if currentShabbos.parasha.name != "NONE" else "Shabbos Hol HaMoed - candle lighting"
             cl = z.candle_lighting
             e.begin = cl
             e.end = cl

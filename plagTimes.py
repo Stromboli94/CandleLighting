@@ -9,7 +9,7 @@ def get_plag_times(tod, c):
         day = tod + datetime.timedelta(days = i)
         z = hdate.Zmanim(date = day, location = c, language = language, candle_lighting_offset = 18, havdalah_offset = 50).plag_hamincha.local.time()
         times.append(z)
-        print(f'{day}, {day.strftime('%A')}, {z}')
+        print(f'{day}, {day.strftime("%A")}, {z}')
     return times
 
 def get_mincha_time(t):

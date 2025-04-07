@@ -76,6 +76,6 @@ with open("CandleLighting.ics", 'w') as f:
 events = sorted(cal.events, key=lambda x: x.begin)
 with open('CandleLighting.txt', 'w') as f:
     for e in events:
-        f.write(f'{e.name} - {e.begin.strftime("%D - %#I:%M %p")}\n')
-        print(f'{e.name} - {e.begin.strftime("%D - %#I:%M %p")}')
+        f.write(f'{e.name} - {e.begin.strftime("%D - %I:%M %p")}\n')
+        print(f'{e.name} - {e.begin.strftime("%D - %I:%M %p")}')
 

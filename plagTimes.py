@@ -1,5 +1,5 @@
 import hdate, datetime
-from location import latitude, longitude, timezone, altitude, diaspora, hebrew
+from location import latitude, longitude, timezone, altitude, diaspora, language
 
 def get_plag_times(tod, c):
     #get date of previous Sunday. Returns today if it is Sunday
@@ -7,7 +7,7 @@ def get_plag_times(tod, c):
     times = []
     for i in range(5):
         day = tod + datetime.timedelta(days = i)
-        z = hdate.Zmanim(date = day, location = c, hebrew = False).zmanim["plag_mincha"].time()
+        z = hdate.Zmanim(date = day, location = c, language = language, candle_lighting_offset = 18, havdalah_offset = 50).plag_hamincha.local.time()
         times.append(z)
         print(f'{day}, {day.strftime('%A')}, {z}')
     return times

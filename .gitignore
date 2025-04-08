@@ -161,3 +161,4 @@ cython_debug/
 
 *.ics
 *.txt
+*.DS_Store

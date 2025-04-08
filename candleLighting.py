@@ -17,7 +17,7 @@ for i in range(years):
     gdate = rh.to_gdate()
     currentShabbos = hdate.HDateInfo(gdate, diaspora= diaspora, language = language).upcoming_shabbat
     if i < 1:
-        erh = hdate.HDateInfo(rh).previous_day
+        erh = hdate.HDateInfo(rh, diaspora= diaspora, language = language).previous_day
         hols.append(erh)
     weeks = h.hdate.year_size(h.hdate.year) // 7
 
@@ -26,7 +26,7 @@ for i in range(years):
         day = hol.gdate
         z = hdate.Zmanim(date = day, location = c, candle_lighting_offset = 18, havdalah_offset = 50, language = language)
         e = Event()
-        e.name = hol.holidays[0].name
+        e.name = str(hol.holidays[0])
         cl = z.candle_lighting
         if not cl:
             cl = z.havdalah
@@ -48,7 +48,7 @@ for i in range(years):
             day = currentShabbos.gdate
             z = hdate.Zmanim(date = day, location = c, candle_lighting_offset = 18, havdalah_offset = 50, language = language)
             e = Event()
-            e.name = f'Parshat {currentShabbos.parasha.name} - havdalah' if currentShabbos.parasha.name != "NONE" else "Shabbos Hol HaMoed - havdalah"
+            e.name = f'Parshat {str(currentShabbos.parasha)} - havdalah' if currentShabbos.parasha.name != "NONE" else "Shabbos Hol HaMoed - havdalah"
             cl = z.havdalah
             e.begin = cl
             e.end = cl
@@ -60,7 +60,7 @@ for i in range(years):
             day = friday.gdate
             z = hdate.Zmanim(date = day, location = c, candle_lighting_offset = 18, havdalah_offset = 50, language = language)
             e = Event()
-            e.name = f'Parshat {currentShabbos.parasha.name} - candle lighting' if currentShabbos.parasha.name != "NONE" else "Shabbos Hol HaMoed - candle lighting"
+            e.name = f'Parshat {str(currentShabbos.parasha)} - candle lighting' if currentShabbos.parasha.name != "NONE" else "Shabbos Hol HaMoed - candle lighting"
             cl = z.candle_lighting
             e.begin = cl
             e.end = cl

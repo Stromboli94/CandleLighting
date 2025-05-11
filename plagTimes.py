@@ -7,7 +7,7 @@ def get_plag_times(tod, c):
     times = []
     for i in range(5):
         day = tod + datetime.timedelta(days = i)
-        z = hdate.Zmanim(date = day, location = c, language = language, candle_lighting_offset = 18, havdalah_offset = 50).plag_hamincha.local.time()
+        z = hdate.Zmanim(date = day, location = c, candle_lighting_offset = 18, havdalah_offset = 50).plag_hamincha.local.time()
         times.append(z)
         print(f'{day}, {day.strftime("%A")}, {z}')
     return times
@@ -18,6 +18,7 @@ def get_mincha_time(t):
     t = t.replace(second = 0) - datetime.timedelta(minutes = 10 + delta)
     return t
 
+hdate.translator.set_language(language)
 c = hdate.Location(name = "home", latitude = latitude, longitude = longitude, timezone = timezone, altitude = altitude, diaspora = diaspora)
 tod = datetime.date.today()
 #tod = datetime.date(year=2025, month= 2, day= 9)

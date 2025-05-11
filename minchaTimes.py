@@ -11,7 +11,7 @@ def get_medianPlag(tod, c):
     times = []
     for i in range(5):
         day = tod + datetime.timedelta(days = i)
-        z = hdate.Zmanim(date = day, location = c, language = language, candle_lighting_offset = 18, havdalah_offset = 50).plag_hamincha.local.time()
+        z = hdate.Zmanim(date = day, location = c, candle_lighting_offset = 18, havdalah_offset = 50).plag_hamincha.local.time()
         times.append(z)
     median_plag = median(times)
     response_variable["time"] = median_plag
@@ -23,15 +23,16 @@ def get_mincha_time(t):
     t = t.replace(second = 0) - datetime.timedelta(minutes = 10 + delta)
     return t
 
+hdate.translator.set_language(language)
 c = hdate.Location(name = "home", latitude = latitude, longitude = longitude, timezone = timezone, altitude = altitude, diaspora = diaspora)
 tod = datetime.date.today()
-h = hdate.HDateInfo(tod, diaspora= diaspora, language = language)
+h = hdate.HDateInfo(tod, diaspora= diaspora)
 cal = Calendar()
 years = 1
 for i in range(years):
     rh = hdate.HebrewDate(h.hdate.year, hdate.Months.TISHREI, 1)
     gdate = rh.to_gdate()
-    currentShabbos = hdate.HDateInfo(gdate, diaspora= diaspora, language = language).upcoming_shabbat
+    currentShabbos = hdate.HDateInfo(gdate, diaspora= diaspora).upcoming_shabbat
     weeks = h.hdate.year_size(h.hdate.year) // 7
     for j in range(weeks + 1):
         day = currentShabbos.gdate

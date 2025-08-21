@@ -4,7 +4,7 @@ from location import latitude, longitude, timezone, altitude, diaspora, language
 
 hdate.translator.set_language(language)
 c = hdate.Location(name = "home", latitude = latitude, longitude = longitude, timezone = timezone, altitude = altitude, diaspora = diaspora)
-tod = hdate.HebrewDate.from_gdate(datetime.date(2026,1,1))
+tod = hdate.HebrewDate.from_gdate(datetime.date.today())
 db = hdate.holidays.HolidayDatabase(diaspora=diaspora)
 cal = Calendar()
 years = 1
